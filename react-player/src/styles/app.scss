@@ -6,7 +6,16 @@
 h1,
 h2,
 h3 {
-  color: rgb(54, 54, 54);
+  color: rgb(49, 48, 48);
+}
+body {
+  font-family: "Poppins", sans-serif;
+}
+h3,
+h4 {
+  font-weight: 400;
+  color: rgb(156, 151, 151);
 }
 @import "./song";
 @import "./player";
+@import "./library.scss";

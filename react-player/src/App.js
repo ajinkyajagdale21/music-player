@@ -3,6 +3,7 @@ import './styles/app.scss';
 import Player from './components/player';
 import Song from './components/song';
 import data from "./util";
+import Library from "./components/library"
 
 function App() {
    const [Songs,setSongs]=useState(data());
@@ -13,7 +14,7 @@ function App() {
 
     <Song currentSong={currentSong}/>      
     <Player setIsPlaying={setIsPlaying} isPlaying={isPlaying} currentSong={currentSong}/>
-    
+    <Library Songs={Songs}/>  
   
     </div>
   );
