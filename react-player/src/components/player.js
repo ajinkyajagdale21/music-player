@@ -1,7 +1,6 @@
 import React,{useEffect} from 'react';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faPlay,faAngleLeft,faAngleRight,faPause,} from "@fortawesome/free-solid-svg-icons";
-import {playAudio} from '../util';
 
 const Player = ({audioRef,currentSong,isPlaying,setIsPlaying,setSongInfo,songInfo,Songs,setCurrentSong,setSongs})=>{
  
@@ -44,20 +43,20 @@ useEffect(()=>{
    setSongInfo({ ...songInfo,currentTime:e.target.value})
   };
  
-  const skipTrackHandler=(direction)=>{
+  const skipTrackHandler= async (direction)=>{
     let currentIndex= Songs.findIndex((song)=>song.id===currentSong.id);
     if(direction==="skip-forward"){
-      setCurrentSong(Songs[(currentIndex +1 ) % Songs.length]);
+     await setCurrentSong(Songs[(currentIndex +1 ) % Songs.length]);
     }
     if(direction==="skip-back"){
       if((currentIndex-1)% Songs.length=== -1){
-        setCurrentSong(Songs[Songs.length-1]);
-        playAudio(isPlaying,audioRef);
+       await setCurrentSong(Songs[Songs.length-1]);
+        if(isPlaying) audioRef.current.play();
         return;
       }
-      setCurrentSong(Songs[(currentIndex -1 ) % Songs.length]);
+     await setCurrentSong(Songs[(currentIndex -1 ) % Songs.length]);
     }
-    playAudio(isPlaying,audioRef);
+    if(isPlaying) audioRef.current.play();
   }
   
   return(
