@@ -6,12 +6,15 @@
 h1,
 h2,
 h3 {
-  color: rgb(49, 48, 48);
+  //color: #7D1411D,#FF41E27;
+  background: -webkit-linear-gradient(#7d141d, #ff1e27);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 body {
   font-family: "Poppins", sans-serif;
 }
-h3,
+
 h4 {
   font-weight: 400;
   color: black;
