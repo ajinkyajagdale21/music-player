@@ -16,7 +16,14 @@
     padding: 1rem;
   }
 }
-
+input[type="range"]:focus {
+  outline: none;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 16px;
+  width: 16px;
+}
 .play-control {
   display: flex;
   justify-content: space-between;
@@ -25,5 +32,13 @@
   width: 30%;
   svg {
     cursor: pointer;
+  }
+}
+@media screen and (max-width: 768px) {
+  .time-control {
+    width: 90%;
+  }
+  .play-control {
+    width: 60%;
   }
 }
